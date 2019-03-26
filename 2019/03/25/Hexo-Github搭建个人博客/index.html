@@ -97,7 +97,7 @@
 
 
   <meta name="description" content="Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。">
-<meta name="keywords" content="Hexo,Github">
+<meta name="keywords" content="Hexo,Github,Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo + Github搭建个人博客">
 <meta property="og:url" content="http://yoursite.com/2019/03/25/Hexo-Github搭建个人博客/index.html">
@@ -125,7 +125,7 @@
 <meta property="og:image" content="https://i.loli.net/2019/03/24/5c97a49140026.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/03/25/5c988dd8f285f.jpg">
 <meta property="og:image" content="https://i.loli.net/2019/03/24/5c978b76b8f9d.jpg">
-<meta property="og:updated_time" content="2019-03-25T09:00:02.341Z">
+<meta property="og:updated_time" content="2019-03-26T03:14:31.992Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo + Github搭建个人博客">
 <meta name="twitter:description" content="Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。">
@@ -413,12 +413,24 @@
                 
               
 
-              <time title="创建时间：2019-03-25 15:45:24 / 修改时间：17:00:02" itemprop="dateCreated datePublished" datetime="2019-03-25T15:45:24+08:00">2019-03-25</time>
+              <time title="创建时间：2019-03-25 15:45:24" itemprop="dateCreated datePublished" datetime="2019-03-25T15:45:24+08:00">2019-03-25</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-26 11:14:31" itemprop="dateModified" datetime="2019-03-26T11:14:31+08:00">2019-03-26</time>
               
             
           </span>
@@ -513,7 +525,7 @@
 <!-- /TOC -->
 <hr>
 <h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a><strong>优点</strong></h3><ul>
-<li>静态页面，访问速度快</li>
+<li>生成静态页面，访问速度快</li>
 <li>免费，不需要服务器不需要后台</li>
 <li>可以绑定自己的域名</li>
 <li>基于Github版本管理，可修改和恢复历史版本</li>
@@ -522,16 +534,21 @@
 <hr>
 <h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a><strong>准备工作</strong></h3><p>安装前，必须检查电脑中是否已安装下列应用程序：</p>
 <ul>
-<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a></li>
-<li><a href="https://www.npmjs.cn/" target="_blank" rel="noopener">npm</a></li>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">NodeJS</a> + <a href="https://www.npmjs.cn/" target="_blank" rel="noopener">NPM</a>(速度慢，建议使用cnpm国内镜像)</li>
 <li><a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a></li>
 </ul>
-<p><strong>配置SSH Key</strong>——使用ssh key来解决本地和Github服务器的连接，获取Github权限。</p>
-<p>具体参考Git安装教程</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/. ssh  <span class="comment">#检查本机已存在的ssh密钥</span></span><br><span class="line"></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"邮件地址"</span>  <span class="comment"># 配置SSH，找到并打开.ssh\id_rsa.pub文件内容，拷贝到Github -&gt; Settings -&gt; SSH and GPG keys -&gt; New SSH key</span></span><br></pre></td></tr></table></figure>
-<p>Hexo搭建的详细内容建议参考<a href="[Hexo文档](https://hexo.io/zh-cn/docs/">Hexo官方文档</a></p>
+<p>本文使用的环境</p>
+<ul>
+<li>Window 10</li>
+<li>NodeJS 8.9.3 + npm 5.5.1</li>
+<li>Git 2.21.0</li>
+<li>Hexo 3.8.0</li>
+</ul>
 <hr>
-<h3 id="设置Git和GithubPages"><a href="#设置Git和GithubPages" class="headerlink" title="设置Git和GithubPages"></a><strong>设置Git和GithubPages</strong></h3><h4 id="创建仓库repo"><a href="#创建仓库repo" class="headerlink" title="创建仓库repo"></a><strong>创建仓库repo</strong></h4><p>新建一个 <code>user.github.io</code> 的仓库，例如用户名是naed，那么 <code>naed.github.io</code> 。（必须是自己的用户名）。</p>
+<h3 id="设置Git和GithubPages"><a href="#设置Git和GithubPages" class="headerlink" title="设置Git和GithubPages"></a><strong>设置Git和GithubPages</strong></h3><p>检查确定Git连接到Github。（具体参考Git安装教程）</p>
+<p><strong>SSH Key配置</strong>——使用ssh key来解决本地和Github服务器的连接，获取Github权限。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/. ssh  <span class="comment">#检查本机已存在的ssh密钥</span></span><br><span class="line"></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">"邮件地址"</span>  <span class="comment"># 配置SSH，找到并打开.ssh\id_rsa.pub文件内容，拷贝到Github -&gt; Settings -&gt; SSH and GPG keys -&gt; New SSH key</span></span><br></pre></td></tr></table></figure>
+<h4 id="创建仓库repo"><a href="#创建仓库repo" class="headerlink" title="创建仓库repo"></a><strong>创建仓库repo</strong></h4><p>新建一个 <code>user.github.io</code> 的仓库，例如用户名是naed，那么 <code>naed.github.io</code> 。（必须是自己的用户名）。</p>
 <p><img src="https://i.loli.net/2019/03/23/5c960de7c1669.jpg" alt="创建仓库"></p>
 <p>具体参考<a href="https://pages.github.com/" target="_blank" rel="noopener">GithubPages官方网站教程</a></p>
 <h4 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a><strong>绑定域名</strong></h4><ul>
@@ -541,15 +558,13 @@
 <p>（有待验证）</p>
 <p><img src="https://i.loli.net/2019/03/23/5c960f0d34bff.jpg" alt="ping仓库"></p>
 <hr>
-<h3 id="使用Hexo搭建博客"><a href="#使用Hexo搭建博客" class="headerlink" title="使用Hexo搭建博客"></a><strong>使用Hexo搭建博客</strong></h3><blockquote>
-<p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-</blockquote>
-<h4 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a><strong>安装Hexo</strong></h4><p>在Git bash中使用 <code>npm</code> 安装 Hexo</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli   <span class="comment">#在Git bash中使用 `npm` 安装 Hexo</span></span><br></pre></td></tr></table></figure>
+<h3 id="使用Hexo搭建博客"><a href="#使用Hexo搭建博客" class="headerlink" title="使用Hexo搭建博客"></a><strong>使用Hexo搭建博客</strong></h3><p>Hexo搭建的详细内容建议参考<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo官方文档</a></p>
+<h4 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a><strong>安装Hexo</strong></h4><p>打开Git bash中执行 <code>npm install -g hexo-cli</code> 安装 Hexo</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/03/23/5c964169e1988.jpg" alt="hexo安装成功"></p>
 <h4 id="初始化Hexo"><a href="#初始化Hexo" class="headerlink" title="初始化Hexo"></a><strong>初始化Hexo</strong></h4><p>两种方式进行初始化</p>
 <ul>
-<li>在路径 <code>/d/Dean/Workspace/hexo/</code> 创建 <code>blog</code> 文件夹，在此打开Git bash初始化。(建议选择以后不随意变动的文件位置)</li>
+<li>在路径 <code>/d/Dean/Workspace/hexo/</code> 创建 <code>blog</code> 文件夹，在此打开Git bash 执行命令 <code>hexo init</code> 进行初始化。(建议选择以后不随意变动的文件位置)</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure>
 <ul>
@@ -560,9 +575,9 @@
 <p>初始化完成后会生成目录结构。此路径 <code>/d/Dean/Workspace/hexo/hexo/blog</code> 将作为Hexo的根目录<br><img src="https://i.loli.net/2019/03/23/5c9645e3ae4b3.jpg" alt="目录结构"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> /d/Dean/Workspace/hexo/hexo/blog</span><br><span class="line"></span><br><span class="line">$ ls</span><br><span class="line">_config.yml  node_modules/  package-lock.json  scaffolds/  themes/</span><br><span class="line">db.json      package.json   public/            <span class="built_in">source</span>/</span><br></pre></td></tr></table></figure>
 <p><img src="https://i.loli.net/2019/03/24/5c9793e580913.jpg" alt="根目录ls"></p>
-<h4 id="生成静态文件夹"><a href="#生成静态文件夹" class="headerlink" title="生成静态文件夹"></a><strong>生成静态文件夹</strong></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure>
+<h4 id="生成静态文件夹"><a href="#生成静态文件夹" class="headerlink" title="生成静态文件夹"></a><strong>生成静态文件夹</strong></h4><p>执行命令 <code>hexo d</code> 生成网站静态文件到默认的 <code>public</code> 文件夹<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li><code>hexo g</code> 是 <code>hexo generate</code> 的缩写，生成网站静态文件到默认的 <code>public</code> 文件夹</li>
+<li><code>hexo g</code> 是 <code>hexo generate</code> 的缩写</li>
 <li><code>public</code> 文件夹将会是Github上面显示的文件<br><img src="https://i.loli.net/2019/03/23/5c9649c729475.jpg" alt="生成"><br><img src="https://i.loli.net/2019/03/24/5c97734c61572.jpg" alt="Github"></li>
 </ul>
 <h4 id="启动本地服务器"><a href="#启动本地服务器" class="headerlink" title="启动本地服务器"></a><strong>启动本地服务器</strong></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
@@ -572,7 +587,7 @@
 <li>不安装可能会有报错 <code>ERROR Deployer not found: git</code> 的<a href="https://www.v2ex.com/t/175940" target="_blank" rel="noopener">情况</a>。</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>接着配置 <code>_config.yml</code> 中有关 <code>deploy</code> 的部分。</p>
+<p>接着配置 <code>_config.yml</code> 中有关 <code>deploy</code> 的部分。（部署到Github repo仓库）</p>
 <ul>
 <li>打开 <code>/d/Dean/Workspace/hexo/blog</code> 文件夹的 <code>_config.yml</code> 文件</li>
 <li>repo建议使用SSH，repo也可以是repository</li>
@@ -619,9 +634,8 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Local search</span><br><span class="line"># Dependencies: https://github.com/theme-next/hexo-generator-searchdb</span><br><span class="line">local_search:</span><br><span class="line">  enable: false</span><br><span class="line">  # if auto, trigger search by changing input</span><br><span class="line">  # if manual, trigger search by pressing enter key or search button</span><br><span class="line">  trigger: auto</span><br><span class="line">  # show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: 1</span><br><span class="line">  # unescape html strings to the readable one</span><br><span class="line">  unescape: false</span><br></pre></td></tr></table></figure>
 <h4 id="NexT-其他设置"><a href="#NexT-其他设置" class="headerlink" title="NexT 其他设置"></a>NexT 其他设置</h4><ul>
-<li>参考 <a href="https://theme-next.org/docs/getting-started/index.html" target="_blank" rel="noopener">NexT User Docs – Starting to Use</a> ，新建<a href="https://theme-next.org/docs/theme-settings/custom-pages/index.html" target="_blank" rel="noopener">About</a>页和<a href="https://theme-next.org/docs/theme-settings/custom-pages/index.html" target="_blank" rel="noopener">tags</a>页、设置sidebar头像、修改默认语言、sidebar返回顶部等</li>
-<li><code>themes/next/_config.yml</code> 可以查看更多设置</li>
-<li>后续更新：评论和访客统计功能</li>
+<li>参考 <a href="https://theme-next.org/docs/getting-started/index.html" target="_blank" rel="noopener">NexT User Docs – Starting to Use</a> ，新建<a href="https://theme-next.org/docs/theme-settings/custom-pages/index.html" target="_blank" rel="noopener">About</a>页和<a href="https://theme-next.org/docs/theme-settings/custom-pages/index.html" target="_blank" rel="noopener">tags</a>页、设置sidebar头像、修改默认语言、sidebar返回顶部等。在<code>themes/next/_config.yml</code> 可以查看更多设置</li>
+<li>在主题 <code>_config.yml</code> 中的 <code>busuanzi_count</code> 启用 <code>enable</code> 访客计数显示功能。执行 <code>hexo d -g</code> 部署到线上即可显示正常。</li>
 </ul>
 <h4 id="NexT-效果展示"><a href="#NexT-效果展示" class="headerlink" title="NexT 效果展示"></a>NexT 效果展示</h4><p><img src="https://i.loli.net/2019/03/25/5c988dd8f285f.jpg" alt="NexT主题"></p>
 <hr>
@@ -632,20 +646,19 @@
 <li><a href="https://hexo.io/zh-cn/docs/commands" target="_blank" rel="noopener">Hexo指令</a></li>
 <li><a href="https://blog.csdn.net/dxxzst/article/details/76135935" target="_blank" rel="noopener">Hexo 最常用的几个命令</a></li>
 </ul>
-<h4 id="hexo-init"><a href="#hexo-init" class="headerlink" title="hexo init"></a>hexo init</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init [folder]</span><br></pre></td></tr></table></figure>
+<h4 id="hexo-init"><a href="#hexo-init" class="headerlink" title="hexo init"></a>hexo init</h4><p>Hexo初始化<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init [folder]</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>新建一个网站。如果没有设置 <code>folder</code> ，Hexo 默认在目前的文件夹建立网站</li>
 </ul>
-<h4 id="hexo-s"><a href="#hexo-s" class="headerlink" title="hexo s"></a>hexo s</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
+<h4 id="hexo-s"><a href="#hexo-s" class="headerlink" title="hexo s"></a>hexo s</h4><p>启动本地服务器，默认访问地址： <code>http://localhost:4000/</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure></p>
 <ul>
-<li>启动本地服务器，默认访问地址： <code>http://localhost:4000/</code></li>
 <li><code>hexo s</code> 是 <code>hexo server</code> 的缩写，命令效果一致</li>
 <li>对 Hexo 根目录 <code>_config.yml</code> 的修改，需要重启本地服务器后才能预览效果</li>
 <li>‘ctrl + c’关闭server</li>
 </ul>
-<h4 id="hexo-new"><a href="#hexo-new" class="headerlink" title="hexo new"></a>hexo new</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"new post"</span></span><br></pre></td></tr></table></figure>
+<h4 id="hexo-new"><a href="#hexo-new" class="headerlink" title="hexo new"></a>hexo new</h4><p>新建标题为 <code>new post</code> 的文章<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"new post"</span></span><br></pre></td></tr></table></figure></p>
 <ul>
-<li>新建标题为 <code>new post</code> 的文章，在博客目录下的 <code>source</code> -&gt; <code>_posts</code> 文件夹中新建 <code>md</code> 文件，在标题可在对应 <code>md</code> 文件修改</li>
+<li>在博客目录下的 <code>source</code> -&gt; <code>_posts</code> 文件夹中新建 <code>md</code> 文件，在标题可在对应 <code>md</code> 文件修改</li>
 <li>如果标题包含空格的话，请使用引号括起来</li>
 </ul>
 <h4 id="hexo-d"><a href="#hexo-d" class="headerlink" title="hexo d"></a>hexo d</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
@@ -713,6 +726,8 @@
             <a href="/tags/Hexo/" rel="tag"># Hexo</a>
           
             <a href="/tags/Github/" rel="tag"># Github</a>
+          
+            <a href="/tags/Git/" rel="tag"># Git</a>
           
         </div>
       
@@ -831,7 +846,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">4</span>
+                      
+                    
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
